@@ -11,6 +11,7 @@ class AuthController extends Controller
 {
     public function showLogin()
     {
+        return view('auth.login');
     }
     public function login(Request $request)
     {
@@ -20,9 +21,9 @@ class AuthController extends Controller
         ]);
 
         if (!Auth::attempt($validated)) {
-            return response()->json([
-                'message' => 'Invalid credentials'
-            ], 401);
+            return back()->withErrors([
+                'email' => 'Invalid credentials'
+            ])->withInput();
         }
 
         /** @var \App\Models\User $user */
@@ -33,6 +34,7 @@ class AuthController extends Controller
 
     public function showRegister()
     {
+        return view('auth.register');
     }
     public function register(Request $request)
     {
