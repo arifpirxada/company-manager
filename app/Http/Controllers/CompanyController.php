@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
@@ -33,7 +34,7 @@ class CompanyController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'nullable|email',
+            'email' => 'required|email',
             'website' => 'nullable|url',
             'logo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
@@ -42,7 +43,12 @@ class CompanyController extends Controller
             $validated['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
-        Company::create($validated);
+        $company = Company::create($validated);
+
+        Mail::raw('Company created successfully in Company Manager', function ($message) use ($company) {
+            $message->to($company->email)
+                ->subject('Company Created');
+        });
 
         return redirect()->back()->with('success', 'Company created successfully!');
     }
@@ -98,7 +104,7 @@ class CompanyController extends Controller
         if ($company->logo && Storage::disk('public')->exists($company->logo)) {
             Storage::disk('public')->delete($company->logo);
         }
-        
+
         $company->delete();
 
         return redirect()->back()->with('success', 'Company deleted successfully!');
