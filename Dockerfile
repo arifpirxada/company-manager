@@ -13,6 +13,12 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
+# Required Laravel setup
+RUN php artisan storage:link || true
+RUN php artisan config:cache
+RUN php artisan route:cache
+RUN php artisan view:cache
+
 # Build assets
 RUN npm install && npm run build
 
