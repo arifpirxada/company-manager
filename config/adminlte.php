@@ -318,15 +318,21 @@ return [
             'can' => 'manage-blog',
         ],
         [
+            'text' => 'Dashboard',
+            'url' => '/',
+            'icon' => 'fas fa-tachometer-alt',
+            'label_color' => 'success',
+        ],
+        [
             'text' => 'Companies',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            // 'label' => 4,
+            'url' => 'companies',
+            'icon' => 'fas fa-industry',
+            // 'label'=> 4,
             'label_color' => 'success',
         ],
         [
             'text' => 'Employees',
-            'url' => 'admin/settings',
+            'url' => 'employees',
             'icon' => 'fas fa-fw fa-user',
         ],
         // [
@@ -405,7 +411,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
