@@ -18,3 +18,18 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Change Language
+
+Route::get('/lang/{locale}', function ($locale) {
+
+    $availableLocales = ['en', 'ur', 'hi'];
+
+    if (!in_array($locale, $availableLocales)) {
+        abort(400);
+    }
+
+    session(['locale' => $locale]);
+
+    return redirect()->back();
+});

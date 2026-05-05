@@ -335,44 +335,24 @@ return [
             'url' => 'employees',
             'icon' => 'fas fa-fw fa-user',
         ],
-        // [
-        //     'text' => 'multilevel',
-        //     'icon' => 'fas fa-fw fa-share',
-        //     'submenu' => [
-        //         [
-        //             'text' => 'level_one',
-        //             'url' => '#',
-        //         ],
-        //         [
-        //             'text' => 'level_one',
-        //             'url' => '#',
-        //             'submenu' => [
-        //                 [
-        //                     'text' => 'level_two',
-        //                     'url' => '#',
-        //                 ],
-        //                 [
-        //                     'text' => 'level_two',
-        //                     'url' => '#',
-        //                     'submenu' => [
-        //                         [
-        //                             'text' => 'level_three',
-        //                             'url' => '#',
-        //                         ],
-        //                         [
-        //                             'text' => 'level_three',
-        //                             'url' => '#',
-        //                         ],
-        //                     ],
-        //                 ],
-        //             ],
-        //         ],
-        //         [
-        //             'text' => 'level_one',
-        //             'url' => '#',
-        //         ],
-        //     ],
-        // ],
+        [
+            'text' => 'multilevel',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'English',
+                    'url' => 'lang/en',
+                ],
+                [
+                    'text' => 'Urdu',
+                    'url' => 'lang/ur',
+                ],
+                [
+                    'text' => 'Hindi',
+                    'url' => 'lang/hi',
+                ],
+            ],
+        ],
     ],
 
     /*
