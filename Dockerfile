@@ -11,17 +11,16 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-# Required Laravel setup
-RUN php artisan storage:link || true
-RUN php artisan config:cache
-RUN php artisan route:cache
-RUN php artisan view:cache
-
-# Build assets
+# Build frontend
 RUN npm install && npm run build
+
+# Fix permissions
+RUN chown -R www-data:www-data storage bootstrap/cache
 
 EXPOSE 10000
 
-CMD php -S 0.0.0.0:10000 -t public
+CMD php artisan key:generate --force && \
+    php artisan storage:link || true && \
+    php -S 0.0.0.0:10000 -t public
