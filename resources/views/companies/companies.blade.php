@@ -10,14 +10,14 @@
 @endif
 <div class="d-flex justify-content-between">
     <h1>Companies</h1>
-    <a href="/companies/create" class="btn btn-primary ml-2">Add New Company</a>
+    <a href="/companies/create" class="btn btn-primary ml-2">Add Company</a>
 </div>
 @stop
 
 @section('content')
 
 <div class="card">
-    <div class="card-body">
+    <div class="card-body" style="overflow-x: auto;">
         <table id="companiesTable" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -35,8 +35,8 @@
                         <td>{{ $company->id }}</td>
                         <td>
                             @if ($company->logo)
-                            <img src="{{ asset('storage/' . $company->logo) }}"
-                            style="width: 35px; height: auto; margin-right: 8px;" alt="">
+                                <img src="{{ asset('storage/' . $company->logo) }}"
+                                    style="width: 35px; height: auto; margin-right: 8px;" alt="">
                             @endif
                             {{ $company->name }}
                             <span class="badge badge-info">{{ $company->employees_count }}</span>
@@ -58,6 +58,11 @@
                 @endforeach
             </tbody>
         </table>
+
+    </div>
+
+    <div class="px-4 d-flex justify-content-end mb-3">
+        {{ $companies->links() }}
     </div>
 </div>
 
@@ -69,8 +74,9 @@
         $('#companiesTable').DataTable({
             responsive: true,
             autoWidth: false,
-            pageLength: 10,
-            order: [[0, 'desc']],
+            paging: false,
+            info: false,
+            searching: false
         });
     });
 </script>

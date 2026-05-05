@@ -13,7 +13,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::withCount('employees')->get();
+        $companies = Company::withCount('employees')->paginate(10);
 
         return view('companies.companies', compact('companies'));
     }

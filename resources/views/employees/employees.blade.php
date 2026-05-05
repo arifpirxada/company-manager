@@ -17,8 +17,8 @@
 @section('content')
 
 <div class="card">
-    <div class="card-body">
-        <table id="companiesTable" class="table table-bordered table-striped">
+    <div class="card-body" style="overflow-x: auto;">
+        <table id="employeesTable" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -56,6 +56,9 @@
             </tbody>
         </table>
     </div>
+    <div class="px-4 d-flex justify-content-end mb-3">
+        {{ $employees->links() }}
+    </div>
 </div>
 
 @stop
@@ -63,11 +66,12 @@
 @section('js')
 <script>
     $(document).ready(function () {
-        $('#companiesTable').DataTable({
+        $('#employeesTable').DataTable({
             responsive: true,
             autoWidth: false,
-            pageLength: 10,
-            order: [[0, 'desc']],
+            paging: false,
+            info: false,
+            searching: false
         });
     });
 </script>
