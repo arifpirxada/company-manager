@@ -303,6 +303,7 @@ return [
         [
             'type' => 'navbar-search',
             'text' => 'search',
+            'translation' => 'menu.search',
             'topnav_right' => true,
         ],
         [
@@ -311,44 +312,44 @@ return [
         ],
 
         // Sidebar items:
-
         [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-        [
-            'text' => 'Dashboard',
+            'text' => 'dashboard',
+            'translation' => 'menu.dashboard',
             'url' => '/',
             'icon' => 'fas fa-tachometer-alt',
             'label_color' => 'success',
         ],
         [
-            'text' => 'Companies',
+            'text' => 'companies',
+            'translation' => 'menu.companies',
             'url' => 'companies',
             'icon' => 'fas fa-industry',
-            // 'label'=> 4,
             'label_color' => 'success',
         ],
         [
-            'text' => 'Employees',
+            'text' => 'employees',
+            'translation' => 'menu.employees',
             'url' => 'employees',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'multilevel',
+            'translation' => 'menu.multilevel',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'English',
+                    'text' => 'english',
+                    'translation' => 'menu.english',
                     'url' => 'lang/en',
                 ],
                 [
-                    'text' => 'Urdu',
+                    'text' => 'urdu',
+                    'translation' => 'menu.urdu',
                     'url' => 'lang/ur',
                 ],
                 [
-                    'text' => 'Hindi',
+                    'text' => 'hindi',
+                    'translation' => 'menu.hindi',
                     'url' => 'lang/hi',
                 ],
             ],

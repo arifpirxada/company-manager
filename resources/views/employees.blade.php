@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Manage Employees")
+@section('title', __('messages.manage_employees'))
 
 @section('content_header')
-<h1>Employees</h1>
+<h1>{{ __('messages.employees') }}</h1>
 @stop
 
 @section('content')

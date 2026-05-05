@@ -1,42 +1,42 @@
 @extends('adminlte::page')
 
-@section('title', "Create Company")
+@section('title', __('messages.add_company'))
 
 @section('content_header')
-<h1>Add Company</h1>
+<h1>{{ __('messages.add_company') }}</h1>
 @stop
 
 @section('content')
 
 <div class="card mb-3">
     <div class="card-header">
-        <h3>Create Company</h3>
+        <h3>{{ __('messages.add_company') }}</h3>
     </div>
     <div class="card-body">
         <form action="{{ route('companies.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group mb-2">
-                <label>Name</label>
+                <label>{{ __('messages.name') }}</label>
                 <input type="text" name="name" class="form-control" required>
             </div>
 
             <div class="form-group mb-2">
-                <label>Email</label>
+                <label>{{ __('messages.email') }}</label>
                 <input type="email" name="email" class="form-control">
             </div>
 
             <div class="form-group mb-2">
-                <label>Website</label>
+                <label>{{ __('messages.website') }}</label>
                 <input type="url" name="website" class="form-control">
             </div>
 
             <div class="form-group mb-3">
-                <label>Logo</label>
+                <label>{{ __('messages.logo') }}</label>
                 <input type="file" name="logo" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Create Company</button>
+            <button type="submit" class="btn btn-primary mt-3">{{ __('messages.save') }}</button>
         </form>
         @if ($errors->any())
             <div class="alert alert-danger mt-4">
@@ -51,7 +51,7 @@
         @endif
         @if(session('success'))
             <div class="alert alert-success mt-4">
-                <strong>Success!</strong> {{ session('success') }}
+                <strong>{{ __('messages.success') }}</strong> {{ session('success') }}
             </div>
         @endif
     </div>

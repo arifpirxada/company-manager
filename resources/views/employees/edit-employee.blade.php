@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Edit Employee")
+@section('title', __('messages.edit_employee'))
 
 @section('content_header')
-<h1>Edit Employee</h1>
+<h1>{{ __('messages.edit_employee') }}</h1>
 @stop
 
 @section('content')
@@ -25,17 +25,17 @@
             @method('PUT')
 
             <div class="form-group mb-2">
-                <label>First Name</label>
+                <label>{{ __('messages.first_name') }}</label>
                 <input type="text" name="first_name" value="{{ $employee->first_name }}" class="form-control" required>
             </div>
 
             <div class="form-group mb-2">
-                <label>Last Name</label>
+                <label>{{ __('messages.last_name') }}</label>
                 <input type="text" name="last_name" value="{{ $employee->last_name }}" class="form-control" required>
             </div>
 
             <div class="form-group mb-2">
-                <label>Company</label>
+                <label>{{ __('messages.company') }}</label>
                 <select name="company_id" value="{{ $employee->company_id }}" class="form-control select2" required>
                     <option value="">Select Company</option>
                     @foreach($companies as $company)
@@ -47,16 +47,16 @@
             </div>
 
             <div class="form-group mb-2">
-                <label>Email</label>
+                <label>{{ __('messages.email') }}</label>
                 <input type="email" name="email" value="{{ $employee->email }}" class="form-control">
             </div>
 
             <div class="form-group mb-2">
-                <label>Phone</label>
+                <label>{{ __('messages.phone') }}</label>
                 <input type="number" name="phone" value="{{ $employee->phone }}" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Update</button>
+            <button type="submit" class="btn btn-primary mt-3">{{ __('messages.save') }}</button>
         </form>
         @if ($errors->any())
             <div class="alert alert-danger mt-4">
@@ -71,7 +71,7 @@
         @endif
         @if(session('success'))
             <div class="alert alert-success mt-4">
-                <strong>Success!</strong> {{ session('success') }}
+                <strong>{{ __('messages.success') }}</strong> {{ session('success') }}
             </div>
         @endif
     </div>

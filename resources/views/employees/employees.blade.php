@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', "Manage Employees")
+@section('title', __('messages.manage_employees'))
 
 @section('content_header')
 @if(session('success'))
     <div class="alert alert-success mt-4">
-        <strong>Success!</strong> {{ session('success') }}
+        <strong>{{ __('messages.success') }}</strong> {{ session('success') }}
     </div>
 @endif
 <div class="d-flex justify-content-between">
-    <h1>Employees</h1>
-    <a href="/employees/create" class="btn btn-primary ml-2">Add Employee</a>
+    <h1>{{ __('messages.employees') }}</h1>
+    <a href="/employees/create" class="btn btn-primary ml-2">{{ __('messages.add_employee') }}</a>
 </div>
 @stop
 
@@ -21,13 +21,13 @@
         <table id="employeesTable" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Full Name</th>
-                    <th>Company</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Created At</th>
-                    <th>Actions</th>
+                    <th>{{ __('messages.id') }}</th>
+                    <th>{{ __('messages.full_name') }}</th>
+                    <th>{{ __('messages.company') }}</th>
+                    <th>{{ __('messages.email') }}</th>
+                    <th>{{ __('messages.phone') }}</th>
+                    <th>{{ __('messages.created_at') }}</th>
+                    <th>{{ __('messages.actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,11 +43,11 @@
                         <td>{{ $employee->created_at->format('d-m-Y') }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="/employees/{{ $employee->id }}/edit" class="btn btn-primary mr-2">Edit</a>
+                                <a href="/employees/{{ $employee->id }}/edit" class="btn btn-primary mr-2">{{ __('messages.edit') }}</a>
                                 <form action="{{ route('employees.destroy', $employee->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger">{{ __('messages.delete') }}</button>
                                 </form>
                             </div>
                         </td>

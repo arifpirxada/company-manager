@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Edit Company")
+@section('title', __('messages.edit_company'))
 
 @section('content_header')
-<h1>Edit Company</h1>
+<h1>{{ __('messages.edit_company') }}</h1>
 @stop
 
 @section('content')
@@ -18,26 +18,26 @@
             @method('PUT')
 
             <div class="form-group mb-2">
-                <label>Name</label>
+                <label>{{ __('messages.name') }}</label>
                 <input type="text" name="name" value="{{ $company->name }}" class="form-control" required>
             </div>
 
             <div class="form-group mb-2">
-                <label>Email</label>
+                <label>{{ __('messages.email') }}</label>
                 <input type="email" name="email" value="{{ $company->email }}" class="form-control">
             </div>
 
             <div class="form-group mb-2">
-                <label>Website</label>
+                <label>{{ __('messages.website') }}</label>
                 <input type="url" name="website" value="{{ $company->website }}" class="form-control">
             </div>
 
             <div class="form-group mb-3">
-                <label>Logo</label>
+                <label>{{ __('messages.logo') }}</label>
                 <input type="file" name="logo" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Update</button>
+            <button type="submit" class="btn btn-primary mt-3">{{ __('messages.save') }}</button>
         </form>
         @if ($errors->any())
             <div class="alert alert-danger mt-4">
@@ -52,7 +52,7 @@
         @endif
         @if(session('success'))
             <div class="alert alert-success mt-4">
-                <strong>Success!</strong> {{ session('success') }}
+                <strong>{{ __('messages.success') }}</strong> {{ session('success') }}
             </div>
         @endif
     </div>

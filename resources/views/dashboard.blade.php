@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Company Manager")
+@section('title', __('messages.company_manager'))
 
 @section('content_header')
-<h1>Company Manager</h1>
+<h1>{{ __('messages.company_manager') }}</h1>
 @stop
 
 @section('content')
@@ -15,24 +15,24 @@
                 <img src="/img/lock.png" alt="Locked" class="img-fluid mb-4" style="width: 80px;" />
 
                 <h4 class="fw-semibold text-dark mb-2">
-                    Welcome to Company Manager Admin Dashboard
+                    {{ __('messages.welcome_dashboard') }}
                 </h4>
 
                 <p class="text-muted mb-4">
-                    Use below Menu
+                    {{ __('messages.use_below_menu') }}
                 </p>
 
                 <div class="d-flex justify-content-center gap-2">
                     <a href="/companies" type="button" class="btn btn-primary">
-                        Companies
+                        {{ __('messages.companies') }}
                     </a>
                     <a href="/employees" type="button" class="btn ml-2 btn-primary">
-                        Employees
+                        {{ __('messages.employees') }}
                     </a>
                     <form action="{{ route("logout") }}" method="post">
                         @csrf
                         <button type="submit" class="btn ml-2 btn-outline-secondary">
-                            Logout
+                            {{ __('messages.logout') }}
                         </button>
                     </form>
                 </div>

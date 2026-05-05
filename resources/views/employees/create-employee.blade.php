@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Create Employee")
+@section('title', __('messages.add_employee'))
 
 @section('content_header')
-<h1>Add Employee</h1>
+<h1>{{ __('messages.add_employee') }}</h1>
 @stop
 
 @section('content')
@@ -16,24 +16,24 @@
 
 <div class="card mb-3">
     <div class="card-header">
-        <h3>Create Company</h3>
+        <h3>{{ __('messages.add_employee') }}</h3>
     </div>
     <div class="card-body">
         <form action="{{ route('employees.store') }}" method="POST">
             @csrf
 
             <div class="form-group mb-2">
-                <label>First Name</label>
+                <label>{{ __('messages.first_name') }}</label>
                 <input type="text" name="first_name" class="form-control" required>
             </div>
 
             <div class="form-group mb-2">
-                <label>Last Name</label>
+                <label>{{ __('messages.last_name') }}</label>
                 <input type="text" name="last_name" class="form-control" required>
             </div>
 
             <div class="form-group mb-2">
-                <label>Company</label>
+                <label>{{ __('messages.company') }}</label>
                 <select name="company_id" class="form-control select2" required>
                     <option value="">Select Company</option>
                     @foreach($companies as $company)
@@ -45,16 +45,16 @@
             </div>
 
             <div class="form-group mb-2">
-                <label>Email</label>
+                <label>{{ __('messages.email') }}</label>
                 <input type="email" name="email" class="form-control">
             </div>
 
             <div class="form-group mb-2">
-                <label>Phone</label>
+                <label>{{ __('messages.phone') }}</label>
                 <input type="number" name="phone" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Create Employee</button>
+            <button type="submit" class="btn btn-primary mt-3">{{ __('messages.save') }}</button>
         </form>
         @if ($errors->any())
             <div class="alert alert-danger mt-4">
@@ -69,7 +69,7 @@
         @endif
         @if(session('success'))
             <div class="alert alert-success mt-4">
-                <strong>Success!</strong> {{ session('success') }}
+                <strong>{{ __('messages.success') }}</strong> {{ session('success') }}
             </div>
         @endif
     </div>
