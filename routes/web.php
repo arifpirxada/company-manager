@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     Route::get('/', fn() => view('dashboard'));
     Route::resource('companies', CompanyController::class);
-    Route::get('/employees', fn() => view('employees'));
+    Route::resource('employees', EmployeeController::class);
 });
 
 
