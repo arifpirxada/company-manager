@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\CompanySeeder;
+use Database\Seeders\EmployeeSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +20,8 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call(CompanySeeder::class);
+
+        $this->call(EmployeeSeeder::class);
 
         User::factory()->create([
             'name' => 'Test User',
