@@ -9,7 +9,7 @@
     </div>
 @endif
 <div class="d-flex justify-content-between">
-    <h1>{{ __('messages.companies') }}</h1>
+    <h1><strong>{{ __('messages.companies') }}</strong></h1>
     <a href="/companies/create" class="btn btn-primary ml-2">{{ __('messages.add_company') }}</a>
 </div>
 @stop
@@ -36,7 +36,7 @@
                         <td>
                             @if ($company->logo)
                                 <img src="{{ asset('storage/' . $company->logo) }}"
-                                    style="width: 35px; height: auto; margin-right: 8px;" alt="">
+                                    style="width: 35px; height: auto; border-radius: 5px; margin-right: 8px;" alt="">
                             @endif
                             {{ $company->name }}
                             <span class="badge badge-info">{{ $company->employees_count }}</span>

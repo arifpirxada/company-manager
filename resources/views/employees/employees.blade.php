@@ -9,7 +9,7 @@
     </div>
 @endif
 <div class="d-flex justify-content-between">
-    <h1>{{ __('messages.employees') }}</h1>
+    <h1><strong>{{ __('messages.employees') }}</strong></h1>
     <a href="/employees/create" class="btn btn-primary ml-2">{{ __('messages.add_employee') }}</a>
 </div>
 @stop
