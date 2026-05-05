@@ -21,7 +21,7 @@
         <table id="companiesTable" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>SNO</th>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Website</th>
